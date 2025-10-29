@@ -280,7 +280,10 @@ export default function Join2Page() {
             onError={(e) => {
               // Fallback to cat emoji if logo doesn't exist
               e.currentTarget.style.display = 'none';
-              e.currentTarget.nextElementSibling.style.display = 'block';
+              const nextSibling = e.currentTarget.nextElementSibling as HTMLElement;
+              if (nextSibling) {
+                nextSibling.style.display = 'block';
+              }
             }}
           />
           <span className="text-3xl" style={{ display: 'none' }}>🐱</span>
